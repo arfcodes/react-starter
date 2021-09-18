@@ -1,6 +1,6 @@
 {
   "name": "izn-react-webpack",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "React starter with Webpack",
   "repository": {
     "type": "git",
