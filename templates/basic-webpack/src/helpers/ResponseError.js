@@ -2,7 +2,7 @@
  * helpers/ResponseError.js
  *
  */
-export default function(result, defaultMessage = '') {
+const ResponseError = (result, defaultMessage = '') => {
   let error = '';
   if (typeof result.response.data.error !== 'undefined') {
     const errors = result.response.data.error;
@@ -30,4 +30,6 @@ export default function(result, defaultMessage = '') {
   }
 
   return error;
-}
+};
+
+export default ResponseError;

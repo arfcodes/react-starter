@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useQuery, useInfiniteQuery, useMutation } from 'react-query';
 
-import { useAppLoader } from 'components/Loader/App/Hook';
+import { useAppLoader } from '../useAppLoader';
 import useError from './Error';
 
 /**

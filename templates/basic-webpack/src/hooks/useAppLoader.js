@@ -1,5 +1,5 @@
 /**
- * components/Loader/App/Hook.js
+ * hooks/useAppLoader.js
  */
 import React, { useState, useContext, createContext, useCallback } from 'react';
 import PropTypes from 'prop-types';

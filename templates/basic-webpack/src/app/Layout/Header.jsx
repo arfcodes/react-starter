@@ -1,5 +1,5 @@
 /**
- * components/Header/index.js
+ * app/Layout/Header.js
  */
 import React from 'react';
 import { NavLink } from 'react-router-dom';

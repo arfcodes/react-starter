@@ -1,13 +1,13 @@
 /**
  * hooks/Request/Error
  */
-import { useModalAlert } from 'components/Modal/Alert/Hook';
+import { useAppAlert } from '../useAppAlert';
 
 /**
  * Hook for show request error
  */
 export default function useRequestError() {
-  const { showModalAlert, hideModalAlert } = useModalAlert();
+  const { showAppAlert, hideAppAlert } = useAppAlert();
 
   const showError = (error, defaultMessage = '', defaultTitle = '') => {
     const { response } = error;
@@ -53,11 +53,11 @@ export default function useRequestError() {
       message = 'Sorry request error, please try again.';
     }
 
-    showModalAlert(message, title, variant);
+    showAppAlert(message, title, variant);
   };
 
   const clearError = () => {
-    hideModalAlert();
+    hideAppAlert();
   };
 
   return {

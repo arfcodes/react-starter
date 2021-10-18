@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { SnackbarProvider } from 'notistack';
 
-import Layout from 'components/Layout';
-import { ModalAlertProvider } from 'components/Modal/Alert/Hook';
-import ModalAlert from 'components/Modal/Alert/Result';
+import { AppAlertProvider } from 'hooks/useAppAlert';
+import { AppLoaderProvider } from 'hooks/useAppLoader';
+import Layout from './Layout/Main';
 
 // Create a query client
 const queryOptions = {
@@ -23,12 +23,11 @@ const queryClient = new QueryClient({
 const Main = ({ children }) => (
   <QueryClientProvider client={queryClient}>
     <SnackbarProvider maxSnack={3}>
-      <ModalAlertProvider>
-        <Layout>
-          {children}
-        </Layout>
-        <ModalAlert />
-      </ModalAlertProvider>
+      <AppLoaderProvider>
+        <AppAlertProvider>
+          <Layout>{children}</Layout>
+        </AppAlertProvider>
+      </AppLoaderProvider>
     </SnackbarProvider>
   </QueryClientProvider>
 );

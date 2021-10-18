@@ -1,5 +1,5 @@
 /**
- * components/Modal/Alert/Hook.js
+ * hooks/useAppAlert.js
  */
 import React, { useState, useContext, createContext } from 'react';
 import PropTypes from 'prop-types';
@@ -7,35 +7,35 @@ import PropTypes from 'prop-types';
 /**
  * Dialog Result Context
  */
-export const ModalAlertContext = createContext();
+export const AppAlertContext = createContext();
 
 /**
  * Provider that take dialog result data
  */
-export function ModalAlertProvider({ children }) {
-  const dialog = useModalAlertProvider();
+export function AppAlertProvider({ children }) {
+  const dialog = useAppAlertProvider();
   return (
-    <ModalAlertContext.Provider value={dialog}>
+    <AppAlertContext.Provider value={dialog}>
       {children}
-    </ModalAlertContext.Provider>
+    </AppAlertContext.Provider>
   );
 }
 
-ModalAlertProvider.propTypes = {
+AppAlertProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
 /**
  * Hook for get dialog result provider
  */
-export function useModalAlertProvider() {
+export function useAppAlertProvider() {
   const [status, setStatus] = useState(false);
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
   const [variant, setVariant] = useState('success');
   const [actions, setActions] = useState(null);
 
-  const showModalAlert = (
+  const showAppAlert = (
     alertMessage,
     alertTitle = '',
     alertVariant = 'success',
@@ -49,7 +49,7 @@ export function useModalAlertProvider() {
     setActions(alertActions);
   };
 
-  const hideModalAlert = () => {
+  const hideAppAlert = () => {
     document.body.classList.remove('scroll-off');
     document.body.style.overflow = 'visible';
     setStatus(true);
@@ -65,12 +65,12 @@ export function useModalAlertProvider() {
     message,
     variant,
     actions,
-    showModalAlert,
-    hideModalAlert,
+    showAppAlert,
+    hideAppAlert,
   };
 }
 
 /**
  * Hook for get dialog result context data
  */
-export const useModalAlert = () => useContext(ModalAlertContext);
+export const useAppAlert = () => useContext(AppAlertContext);

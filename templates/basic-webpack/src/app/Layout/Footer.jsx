@@ -1,5 +1,5 @@
 /**
- * components/Footer/index.js
+ * app/Layout/Footer.js
  */
 import React from 'react';
 
@@ -13,5 +13,4 @@ const Footer = () => (
   </footer>
 );
 
-// export default memo(Footer);
 export default Footer;
